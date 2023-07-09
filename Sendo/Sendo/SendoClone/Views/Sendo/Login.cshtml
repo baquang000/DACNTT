@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .main-register-item-btn{
+        text-align:center
+    }
+</style>
+
+
+
+<div class="main-login-register">
+    <div class="main-login-item">
+        <span class="main-login-item-title">Đăng Nhập</span>
+        @if (ViewBag.msg != null) { 
+            <br/>
+            <span style="color:red" >@ViewBag.msg</span>
+        }
+        <form action="/Sendo/Login" method="Post">
+            <label for="email">Địa chỉ email của bạn</label>
+            <input name="Email" class="main-login-input" id="email" type="text" placeholder="Example@gmail.com">
+            <label for="password">Mật khẩu của bạn</label>
+            <input name="Password" class="main-login-input" id="password" type="password">
+            <div>
+                <span>
+                    <input class="main-login-item-checkbox" type="checkbox">
+                    <p>Nhớ tài khoản</p>
+                </span>
+                <span>
+                    <a href="#"><p>Bạn đã quên mật khẩu ?</p></a>
+                </span>
+            </div>
+            <input class="main-login-item-btn" type="submit" value="Đăng nhập">
+        </form>
+    </div>
+
+    <div class="main-register-item">
+        <span class="main-register-item-title">Đăng Kí</span>
+        @if (ViewBag.successMsg != null)
+        {
+            <br />
+            <span style="color:green">@ViewBag.successMsg</span>
+        }
+        <form action="/Sendo/Register" method="post">
+            <span id="register_error"></span>
+            <label for="username">Tên người dùng</label>
+            @if (ViewBag.usernameMsg != null)
+            {
+                <span style="color:red">@ViewBag.usernameMsg</span>
+            }
+            <span class="forusername"></span>
+            <input name="UserName" id="username" class="main-register-input" type="text" placeholder="Tên của bạn">
+            <label for="email">Địa chỉ email của bạn</label>
+            @if (ViewBag.emailMsg != null)
+            {
+                <span style="color:red">@ViewBag.emailMsg</span>
+            }
+            <input name="Email" id="email" class="main-register-input" type="text" placeholder="Example@gmail.com">
+            <label for="password">Mật khẩu của bạn</label>
+            @if (ViewBag.passwordMsg != null)
+            {
+                <span style="color:red">@ViewBag.passwordMsg</span>
+            }
+            <input name="Password" id="password" class="main-register-input" type="password" placeholder="Mật khẩu">
+            <input class="main-register-item-btn" id="btn-register" type="submit" value="Đăng kí">
+        </form>
+    </div>
+</div>
+
+
+
+<script src="~/Assets/Client//index-6.js"></script>
+
